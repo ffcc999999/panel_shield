@@ -7,7 +7,7 @@ interface Response {
 
 export default (server: string): Promise<Response> => {
     return new Promise((resolve, reject) => {
-        http.get(`/api/client/servers/${server}/websocket`)
+        http.get(`/api/client/services/${server}/websocket`)
             .then(({ data }) =>
                 resolve({
                     token: data.data.token,

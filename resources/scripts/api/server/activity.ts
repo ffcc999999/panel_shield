@@ -19,7 +19,7 @@ const useActivityLogs = (
     return useSWR<PaginatedResult<ActivityLog>>(
         key,
         async () => {
-            const { data } = await http.get(`/api/client/servers/${uuid}/activity`, {
+            const { data } = await http.get(`/api/client/services/${uuid}/activity`, {
                 params: {
                     ...withQueryBuilderParams(filters),
                     include: ['actor'],

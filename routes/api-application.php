@@ -72,10 +72,10 @@ Route::group(['prefix' => '/locations'], function () {
 | Server Controller Routes
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/application/servers
+| Endpoint: /api/application/services
 |
 */
-Route::group(['prefix' => '/servers'], function () {
+Route::group(['prefix' => '/services'], function () {
     Route::get('/', [Application\Servers\ServerController::class, 'index'])->name('api.application.servers');
     Route::get('/{server:id}', [Application\Servers\ServerController::class, 'view'])->name('api.application.servers.view');
     Route::get('/external/{external_id}', [Application\Servers\ExternalServerController::class, 'index'])->name('api.application.servers.external');

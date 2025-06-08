@@ -69,7 +69,7 @@ const App = () => {
                                     <AuthenticationRouter />
                                 </Spinner.Suspense>
                             </Route>
-                            <AuthenticatedRoute path={'/server/:id'}>
+                            <AuthenticatedRoute path={'/services/:id'}>
                                 <Spinner.Suspense>
                                     <ServerContext.Provider>
                                         <ServerRouter />

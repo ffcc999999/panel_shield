@@ -150,7 +150,7 @@ class CreateServerScheduleTaskTest extends ClientApiIntegrationTestCase
         $schedule = Schedule::factory()->create(['server_id' => $server2->id]);
 
         $this->actingAs($user)
-            ->postJson("/api/client/servers/$server->uuid/schedules/$schedule->id/tasks")
+            ->postJson("/api/client/services/$server->uuid/schedules/$schedule->id/tasks")
             ->assertNotFound();
     }
 

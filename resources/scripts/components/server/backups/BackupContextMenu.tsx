@@ -96,7 +96,7 @@ export default ({ backup }: Props) => {
             return setModal('unlock');
         }
 
-        http.post(`/api/client/servers/${uuid}/backups/${backup.uuid}/lock`)
+        http.post(`/api/client/services/${uuid}/backups/${backup.uuid}/lock`)
             .then(() =>
                 mutate(
                     (data) => ({

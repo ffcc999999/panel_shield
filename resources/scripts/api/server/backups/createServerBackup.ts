@@ -9,7 +9,7 @@ interface RequestParameters {
 }
 
 export default async (uuid: string, params: RequestParameters): Promise<ServerBackup> => {
-    const { data } = await http.post(`/api/client/servers/${uuid}/backups`, {
+    const { data } = await http.post(`/api/client/services/${uuid}/backups`, {
         name: params.name,
         ignored: params.ignored,
         is_locked: params.isLocked,

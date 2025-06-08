@@ -4,7 +4,7 @@ import http from '@/api/http';
 type Data = Pick<Schedule, 'cron' | 'name' | 'onlyWhenOnline' | 'isActive'> & { id?: number };
 
 export default async (uuid: string, schedule: Data): Promise<Schedule> => {
-    const { data } = await http.post(`/api/client/servers/${uuid}/schedules${schedule.id ? `/${schedule.id}` : ''}`, {
+    const { data } = await http.post(`/api/client/services/${uuid}/schedules${schedule.id ? `/${schedule.id}` : ''}`, {
         is_active: schedule.isActive,
         only_when_online: schedule.onlyWhenOnline,
         name: schedule.name,

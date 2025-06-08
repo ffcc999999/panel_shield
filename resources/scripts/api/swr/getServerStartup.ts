@@ -13,7 +13,7 @@ export default (uuid: string, initialData?: Response | null, config?: ConfigInte
     useSWR(
         [uuid, '/startup'],
         async (): Promise<Response> => {
-            const { data } = await http.get(`/api/client/servers/${uuid}/startup`);
+            const { data } = await http.get(`/api/client/services/${uuid}/startup`);
 
             const variables = ((data as FractalResponseList).data || []).map(rawDataToServerEggVariable);
 

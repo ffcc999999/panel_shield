@@ -2,7 +2,7 @@ import http from '@/api/http';
 
 export default async (uuid: string, directory: string, file: string): Promise<void> => {
     await http.post(
-        `/api/client/servers/${uuid}/files/decompress`,
+        `/api/client/services/${uuid}/files/decompress`,
         { root: directory, file },
         {
             timeout: 300000,
