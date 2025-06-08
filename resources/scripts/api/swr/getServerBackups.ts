@@ -19,7 +19,7 @@ export default () => {
     const uuid = ServerContext.useStoreState((state) => state.server.data!.uuid);
 
     return useSWR<BackupResponse>(['server:backups', uuid, page], async () => {
-        const { data } = await http.get(`/api/client/servers/${uuid}/backups`, { params: { page } });
+        const { data } = await http.get(`/api/client/services/${uuid}/backups`, { params: { page } });
 
         return {
             items: (data.data || []).map(rawDataToServerBackup),

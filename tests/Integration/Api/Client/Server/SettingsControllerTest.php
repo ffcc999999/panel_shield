@@ -22,7 +22,7 @@ class SettingsControllerTest extends ClientApiIntegrationTestCase
         $originalName = $server->name;
         $originalDescription = $server->description;
 
-        $response = $this->actingAs($user)->postJson("/api/client/servers/$server->uuid/settings/rename", [
+        $response = $this->actingAs($user)->postJson("/api/client/services/$server->uuid/settings/rename", [
             'name' => '',
             'description' => '',
         ]);
@@ -35,7 +35,7 @@ class SettingsControllerTest extends ClientApiIntegrationTestCase
         $this->assertSame($originalDescription, $server->description);
 
         $this->actingAs($user)
-            ->postJson("/api/client/servers/$server->uuid/settings/rename", [
+            ->postJson("/api/client/services/$server->uuid/settings/rename", [
                 'name' => 'Test Server Name',
                 'description' => 'This is a test server.',
             ])
@@ -56,7 +56,7 @@ class SettingsControllerTest extends ClientApiIntegrationTestCase
         $originalName = $server->name;
 
         $this->actingAs($user)
-            ->postJson("/api/client/servers/$server->uuid/settings/rename", [
+            ->postJson("/api/client/services/$server->uuid/settings/rename", [
                 'name' => 'Test Server Name',
             ])
             ->assertStatus(Response::HTTP_FORBIDDEN);
@@ -89,7 +89,7 @@ class SettingsControllerTest extends ClientApiIntegrationTestCase
             ->expects('reinstall')
             ->andReturnUndefined();
 
-        $this->actingAs($user)->postJson("/api/client/servers/$server->uuid/settings/reinstall")
+        $this->actingAs($user)->postJson("/api/client/services/$server->uuid/settings/reinstall")
             ->assertStatus(Response::HTTP_ACCEPTED);
 
         $server = $server->refresh();
@@ -105,7 +105,7 @@ class SettingsControllerTest extends ClientApiIntegrationTestCase
         [$user, $server] = $this->generateTestAccount([Permission::ACTION_WEBSOCKET_CONNECT]);
 
         $this->actingAs($user)
-            ->postJson("/api/client/servers/$server->uuid/settings/reinstall")
+            ->postJson("/api/client/services/$server->uuid/settings/reinstall")
             ->assertStatus(Response::HTTP_FORBIDDEN);
 
         $server = $server->refresh();

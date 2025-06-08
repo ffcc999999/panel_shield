@@ -78,7 +78,7 @@ export default () => {
                             <FileManagerStatus />
                             <NewDirectoryButton />
                             <UploadButton />
-                            <NavLink to={`/server/${id}/files/new${window.location.hash}`}>
+                            <NavLink to={`/services/${id}/files/new${window.location.hash}`}>
                                 <Button>New File</Button>
                             </NavLink>
                         </div>

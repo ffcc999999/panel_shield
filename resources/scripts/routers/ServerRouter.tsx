@@ -93,7 +93,7 @@ export default () => {
                                     )}
                                 {rootAdmin && (
                                     // eslint-disable-next-line react/jsx-no-target-blank
-                                    <a href={`/admin/servers/view/${serverId}`} target={'_blank'}>
+                                    <a href={`/admin/services/view/${serverId}`} target={'_blank'}>
                                         <FontAwesomeIcon icon={faExternalLinkAlt} />
                                     </a>
                                 )}
@@ -103,7 +103,7 @@ export default () => {
                     <InstallListener />
                     <TransferListener />
                     <WebsocketHandler />
-                    {inConflictState && (!rootAdmin || (rootAdmin && !location.pathname.endsWith(`/server/${id}`))) ? (
+                    {inConflictState && (!rootAdmin || (rootAdmin && !location.pathname.endsWith(`/services/${id}`))) ? (
                         <ConflictStateRenderer />
                     ) : (
                         <ErrorBoundary>

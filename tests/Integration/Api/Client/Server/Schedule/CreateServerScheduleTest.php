@@ -18,7 +18,7 @@ class CreateServerScheduleTest extends ClientApiIntegrationTestCase
     {
         [$user, $server] = $this->generateTestAccount($permissions);
 
-        $response = $this->actingAs($user)->postJson("/api/client/servers/$server->uuid/schedules", [
+        $response = $this->actingAs($user)->postJson("/api/client/services/$server->uuid/schedules", [
             'name' => 'Test Schedule',
             'is_active' => false,
             'minute' => '0',
@@ -54,7 +54,7 @@ class CreateServerScheduleTest extends ClientApiIntegrationTestCase
     {
         [$user, $server] = $this->generateTestAccount();
 
-        $response = $this->actingAs($user)->postJson("/api/client/servers/$server->uuid/schedules", []);
+        $response = $this->actingAs($user)->postJson("/api/client/services/$server->uuid/schedules", []);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
         foreach (['name', 'minute', 'hour', 'day_of_month', 'day_of_week'] as $i => $field) {
@@ -64,7 +64,7 @@ class CreateServerScheduleTest extends ClientApiIntegrationTestCase
         }
 
         $this->actingAs($user)
-            ->postJson("/api/client/servers/$server->uuid/schedules", [
+            ->postJson("/api/client/services/$server->uuid/schedules", [
                 'name' => 'Testing',
                 'is_active' => 'no',
                 'minute' => '*',
@@ -85,7 +85,7 @@ class CreateServerScheduleTest extends ClientApiIntegrationTestCase
         [$user, $server] = $this->generateTestAccount([Permission::ACTION_SCHEDULE_UPDATE]);
 
         $this->actingAs($user)
-            ->postJson("/api/client/servers/$server->uuid/schedules", [])
+            ->postJson("/api/client/services/$server->uuid/schedules", [])
             ->assertForbidden();
     }
 

@@ -157,7 +157,7 @@ export default () => {
                         <Can action={'schedule.delete'}>
                             <DeleteScheduleButton
                                 scheduleId={schedule.id}
-                                onDeleted={() => history.push(`/server/${id}/schedules`)}
+                                onDeleted={() => history.push(`/services/${id}/schedules`)}
                             />
                         </Can>
                         {schedule.tasks.length > 0 && (

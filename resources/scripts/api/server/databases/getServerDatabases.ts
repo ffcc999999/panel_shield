@@ -20,7 +20,7 @@ export const rawDataToServerDatabase = (data: any): ServerDatabase => ({
 
 export default (uuid: string, includePassword = true): Promise<ServerDatabase[]> => {
     return new Promise((resolve, reject) => {
-        http.get(`/api/client/servers/${uuid}/databases`, {
+        http.get(`/api/client/services/${uuid}/databases`, {
             params: includePassword ? { include: 'password' } : undefined,
         })
             .then((response) =>

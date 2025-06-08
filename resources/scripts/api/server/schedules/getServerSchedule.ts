@@ -3,7 +3,7 @@ import { rawDataToServerSchedule, Schedule } from '@/api/server/schedules/getSer
 
 export default (uuid: string, schedule: number): Promise<Schedule> => {
     return new Promise((resolve, reject) => {
-        http.get(`/api/client/servers/${uuid}/schedules/${schedule}`, {
+        http.get(`/api/client/services/${uuid}/schedules/${schedule}`, {
             params: {
                 include: ['tasks'],
             },

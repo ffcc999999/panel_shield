@@ -74,7 +74,7 @@ export const rawDataToServerObject = ({ attributes: data }: FractalResponseData)
 
 export default (uuid: string): Promise<[Server, string[]]> => {
     return new Promise((resolve, reject) => {
-        http.get(`/api/client/servers/${uuid}`)
+        http.get(`/api/client/services/${uuid}`)
             .then(({ data }) =>
                 resolve([
                     rawDataToServerObject(data),

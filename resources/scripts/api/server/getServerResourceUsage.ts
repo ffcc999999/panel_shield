@@ -15,7 +15,7 @@ export interface ServerStats {
 
 export default (server: string): Promise<ServerStats> => {
     return new Promise((resolve, reject) => {
-        http.get(`/api/client/servers/${server}/resources`)
+        http.get(`/api/client/services/${server}/resources`)
             .then(({ data: { attributes } }) =>
                 resolve({
                     status: attributes.current_state,

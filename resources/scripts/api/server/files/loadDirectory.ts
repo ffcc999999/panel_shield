@@ -17,7 +17,7 @@ export interface FileObject {
 }
 
 export default async (uuid: string, directory?: string): Promise<FileObject[]> => {
-    const { data } = await http.get(`/api/client/servers/${uuid}/files/list`, {
+    const { data } = await http.get(`/api/client/services/${uuid}/files/list`, {
         params: { directory: directory ?? '/' },
     });
 

@@ -48,11 +48,11 @@ Route::prefix('/account')->middleware(AccountSubject::class)->group(function () 
 | Client Control API
 |--------------------------------------------------------------------------
 |
-| Endpoint: /api/client/servers/{server}
+| Endpoint: /api/client/services/{service}
 |
 */
 Route::group([
-    'prefix' => '/servers/{server}',
+    'prefix' => '/services/{service}',
     'middleware' => [
         ServerSubject::class,
         AuthenticateServerAccess::class,

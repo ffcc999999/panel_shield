@@ -10,7 +10,7 @@ export default () => {
     return useSWR<Allocation[]>(
         ['server:allocations', uuid],
         async () => {
-            const { data } = await http.get(`/api/client/servers/${uuid}/network/allocations`);
+            const { data } = await http.get(`/api/client/services/${uuid}/network/allocations`);
 
             return (data.data || []).map(rawDataToServerAllocation);
         },

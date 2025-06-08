@@ -38,7 +38,7 @@ interface ServerRouteDefinition extends RouteDefinition {
 interface Routes {
     // All of the routes available under "/account"
     account: RouteDefinition[];
-    // All of the routes available under "/server/:id"
+    // All of the routes available under "/services/:id"
     server: ServerRouteDefinition[];
 }
 

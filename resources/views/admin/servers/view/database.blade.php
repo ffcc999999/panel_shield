@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col-sm-7">
         <div class="alert alert-info">
-            Database passwords can be viewed when <a href="/server/{{ $server->uuidShort }}/databases">visiting this server</a> on the front-end.
+            Database passwords can be viewed when <a href="/services/{{ $server->uuidShort }}/databases">visiting this server</a> on the front-end.
         </div>
         <div class="box box-primary">
             <div class="box-header with-border">
@@ -120,7 +120,7 @@
         }, function () {
             $.ajax({
                 method: 'DELETE',
-                url: '/admin/servers/view/{{ $server->id }}/database/' + self.data('id') + '/delete',
+                url: '/admin/services/view/{{ $server->id }}/database/' + self.data('id') + '/delete',
                 headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
             }).done(function () {
                 self.parent().parent().slideUp();
@@ -141,7 +141,7 @@
         $(this).addClass('disabled').find('i').addClass('fa-spin');
         $.ajax({
             type: 'PATCH',
-            url: '/admin/servers/view/{{ $server->id }}/database',
+            url: '/admin/services/view/{{ $server->id }}/database',
             headers: { 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') },
             data: { database: $(this).data('id') },
         }).done(function (data) {
